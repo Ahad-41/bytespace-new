@@ -28,11 +28,11 @@ export function CourseCard({ course, highlight = false, className }: CourseCardP
           sizes="(min-width: 1280px) 341px, (min-width: 640px) 45vw, 90vw"
           className="object-cover"
         />
-        <ul className="absolute right-3 bottom-3 left-3 flex gap-3 overflow-hidden" aria-label="Course details">
+        <ul className="absolute inset-x-2 bottom-3 flex gap-2 overflow-hidden sm:inset-x-3 sm:gap-3" aria-label="Course details">
           {meta.map((item) => (
             <li
               key={item}
-              className="rounded-3xl bg-[rgb(246_246_246/0.6)] px-3 py-1.5 text-label-xs leading-5 font-medium whitespace-nowrap text-graphite backdrop-blur-[4px]"
+              className="rounded-3xl bg-[rgb(246_246_246/0.6)] px-2.5 py-1.5 sm:px-3 text-label-xs leading-5 font-medium whitespace-nowrap text-graphite backdrop-blur-[4px]"
             >
               {item}
             </li>

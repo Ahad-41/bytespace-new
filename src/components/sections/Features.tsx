@@ -43,7 +43,7 @@ export function Features() {
       <Container className="relative flex flex-col gap-20 lg:gap-[72px]">
         {/* Learners */}
         <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-10 xl:w-[1258px] xl:gap-[63px]">
-          <div className="flex flex-col gap-8 lg:flex-1 lg:gap-10 xl:w-[574px] xl:flex-none">
+          <div className="flex w-full flex-col gap-8 lg:w-auto lg:flex-1 lg:gap-10 xl:w-[574px] xl:flex-none">
             <h2 className={headingStyles}>Your Path to Professional Growth Starts Here!</h2>
             <p className="max-w-[477px] text-body-md text-shuttle-700 md:text-body-lg">
               Explore our curated selection of courses tailored to enhance your capabilities and accelerate your career
@@ -98,7 +98,7 @@ export function Features() {
             <DecorShape name="spring-b-lime" className="top-[114px] left-[305px] w-[215px]" />
           </ScaledStage>
 
-          <div className="flex flex-col gap-8 lg:flex-1 lg:gap-10 xl:w-[580px] xl:flex-none">
+          <div className="flex w-full flex-col gap-8 lg:w-auto lg:flex-1 lg:gap-10 xl:w-[580px] xl:flex-none">
             <h2 className={`${headingStyles} max-w-[391px]`}>Create &amp; Manage Courses Easily.</h2>
             <p className="max-w-[574px] text-body-md text-shuttle-700 md:text-body-lg">
               <strong className="font-bold text-shuttle-950">ByteSpace</strong> supports individuals or entities in the

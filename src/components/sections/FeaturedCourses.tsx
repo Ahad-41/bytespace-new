@@ -21,7 +21,7 @@ export function FeaturedCourses() {
         <div className="mt-10 md:mt-[42px]">
           <TopicTabs />
         </div>
-        <ul className="mt-12 grid gap-6 sm:grid-cols-2 md:mt-[77px] lg:grid-cols-3 lg:gap-10">
+        <ul className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 md:mt-[77px] lg:grid-cols-3 lg:gap-10">
           {courses.map((course) => (
             <li key={course.id}>
               <CourseCard course={course} />
