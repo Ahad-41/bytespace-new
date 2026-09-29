@@ -9,7 +9,7 @@ type PositionedProps = { className?: string };
 
 export function LearningProgressCard({ className }: PositionedProps) {
   return (
-    <FloatingCard className={className}>
+    <FloatingCard className={cn("gap-2", className)}>
       <p className="text-label-sm font-medium">Learning Progress</p>
       <p className="font-heading text-metric font-semibold">55%</p>
       <ProgressBar value={56} label="Learning progress" />
@@ -25,7 +25,7 @@ type HappyStudentsCardProps = PositionedProps & {
 
 export function HappyStudentsCard({ className, tone = "white", compact = false }: HappyStudentsCardProps) {
   return (
-    <FloatingCard className={cn("w-[258px] justify-center", tone === "lime" && "bg-accent", className)}>
+    <FloatingCard tone={tone} className={cn("w-[258px] justify-center gap-2", className)}>
       <div>
         <p className={cn("text-label-md font-medium", compact && "leading-6")}>Happy Students</p>
         <p className="flex items-center gap-0.5">
@@ -43,7 +43,7 @@ export function HappyStudentsCard({ className, tone = "white", compact = false }
 
 export function TopicStatCard({ className }: PositionedProps) {
   return (
-    <FloatingCard className={cn("gap-0", className)}>
+    <FloatingCard className={className}>
       <p className="text-label-md font-medium">UI/UX Design</p>
       <p className="flex items-center gap-2 text-body-xs text-shuttle-400">
         200 Courses <span aria-hidden className="text-caption">•</span> 1000+ Students
@@ -67,7 +67,7 @@ export function RevenueCard({ className, title, period, amount, delta, progress 
   );
 
   return (
-    <FloatingCard className={cn("bg-brand text-shuttle-50", className)}>
+    <FloatingCard tone="brand" className={cn("gap-2", className)}>
       <div>
         <p className="text-label-md font-medium">{title}</p>
         <p className="text-caption leading-[1.2]">{period}</p>
