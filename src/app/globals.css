@@ -1,26 +1,113 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * Design tokens pulled from the ByteSpace Figma file.
+ * Colors keep their Figma palette names (Persian Blue, Electric Lime, Shuttle Gray).
+ */
+@theme {
+  /* Brand */
+  --color-brand: #003be2; /* Persian Blue/800 */
+  --color-accent: #d4fb20; /* Electric Lime/400 */
+  --color-accent-strong: #cbfc01; /* Electric Lime/500 */
+  --color-violet: #7f30f7; /* Electric Violet/600 */
+
+  /* Neutrals */
+  --color-shuttle-50: #f5f5f6;
+  --color-shuttle-100: #e5e6e8;
+  --color-shuttle-200: #ced0d3;
+  --color-shuttle-300: #abaeb5;
+  --color-shuttle-400: #82868e;
+  --color-shuttle-700: #4b4c53;
+  --color-shuttle-800: #424348;
+  --color-shuttle-900: #3a3b3f;
+  --color-shuttle-950: #242528;
+  --color-ink: #040819;
+  --color-graphite: #4f4f4f; /* Black/700 */
+  --color-muted: #888888; /* Black/400 */
+  --color-line: #d1d1d1; /* Black/200 */
+  --color-surface: #fafafa;
+
+  /* Fonts (CSS variables are injected by next/font in layout.tsx) */
+  --font-sans: var(--font-satoshi), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-brand: var(--font-clash-display), var(--font-poppins), sans-serif;
+
+  /* Headings — Poppins, Figma letter-spacing -1% */
+  --text-display: 4.5rem; /* Heading L 72 */
+  --text-display--line-height: 1.2;
+  --text-display--letter-spacing: -0.01em;
+  --text-h1: 2.75rem; /* Heading M 44 */
+  --text-h1--line-height: 1.2;
+  --text-h1--letter-spacing: -0.01em;
+  --text-h2: 2.25rem; /* 36 */
+  --text-h2--line-height: 1.2;
+  --text-h2--letter-spacing: -0.01em;
+  --text-h3: 1.5rem; /* Heading S 24 */
+  --text-h3--line-height: 2rem;
+  --text-h3--letter-spacing: -0.01em;
+  --text-h4: 1.25rem; /* Heading XS 20 */
+  --text-h4--line-height: 1.4;
+  --text-h4--letter-spacing: -0.01em;
+  --text-metric: 3rem; /* 48 */
+  --text-metric--line-height: 1.2;
+  --text-metric--letter-spacing: -0.01em;
+  --text-stat: 2.25rem; /* Display XS 36 */
+  --text-stat--line-height: 2.75rem;
+  --text-stat--letter-spacing: -0.01em;
+
+  /* Body & labels — Satoshi */
+  --text-body-lg: 1.125rem; /* Body L 18 */
+  --text-body-lg--line-height: 1.6;
+  --text-body-md: 1rem; /* Body M 16 */
+  --text-body-md--line-height: 1.6;
+  --text-body-sm: 0.875rem; /* Body S 14 */
+  --text-body-sm--line-height: 1.6;
+  --text-body-xs: 0.75rem; /* Body XS 12 */
+  --text-body-xs--line-height: 1.6;
+  --text-label-xl: 1.25rem; /* Label XL 20 */
+  --text-label-xl--line-height: 1.2;
+  --text-label-lg: 1.125rem; /* Label L 18 */
+  --text-label-lg--line-height: 1.2;
+  --text-label-md: 1rem; /* Label M 16 */
+  --text-label-md--line-height: 1.2;
+  --text-label-sm: 0.875rem; /* Label S 14 */
+  --text-label-sm--line-height: 1.2;
+  --text-label-xs: 0.75rem; /* Label XS 12 */
+  --text-label-xs--line-height: 1.2;
+  --text-caption: 0.625rem; /* 10 */
+  --text-caption--line-height: 1.5;
+
+  /* Radii */
+  --radius-card: 1.5rem; /* 24 */
+  --radius-panel: 1rem; /* 16 */
+  --radius-field: 0.75rem; /* 12 */
+
+  /* Layout */
+  --container-page: 75rem; /* 1200 content width */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Soft layered shadow used on the cut-out photos (Figma effect style "A"). */
+@utility drop-shadow-float {
+  filter: drop-shadow(51px 73px 36px rgb(0 0 0 / 0.1))
+    drop-shadow(26px 37px 18px rgb(0 0 0 / 0.08))
+    drop-shadow(10px 15px 8px rgb(0 0 0 / 0.07))
+    drop-shadow(2px 3px 3px rgb(0 0 0 / 0.05));
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* 120px grid of faint white lines used on the blue sections. */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.12) 2px, transparent 2px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.12) 2px, transparent 2px);
+  background-size: 120px 120px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-white font-sans text-shuttle-950 antialiased;
+  }
 }
