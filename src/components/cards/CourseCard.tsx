@@ -1,25 +1,18 @@
 import Image from "next/image";
 import { AvatarStack } from "@/components/ui/AvatarStack";
 import { learnerAvatars, type Course } from "@/data/courses";
-import { cn } from "@/lib/cn";
 
 type CourseCardProps = {
   course: Course;
   /** Lime rating star and dark learner badge, used where the card floats over imagery. */
   highlight?: boolean;
-  className?: string;
 };
 
-export function CourseCard({ course, highlight = false, className }: CourseCardProps) {
+export function CourseCard({ course, highlight = false }: CourseCardProps) {
   const meta = [`${course.lessons} Lessons`, course.duration, `${course.comments} Comments`];
 
   return (
-    <article
-      className={cn(
-        "flex w-full flex-col overflow-hidden rounded-card border border-shuttle-200 bg-white p-[15px] transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgb(0_0_0/0.08)]",
-        className,
-      )}
-    >
+    <article className="flex w-full flex-col overflow-hidden rounded-card border border-shuttle-200 bg-white p-[15px] transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgb(0_0_0/0.08)]">
       <div className="relative aspect-[341/195] overflow-hidden rounded-xl bg-[#443131]">
         <Image
           src={course.image}

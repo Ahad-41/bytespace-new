@@ -7,7 +7,6 @@ type AvatarStackProps = {
   countLabel: string;
   size?: "sm" | "md";
   badgeTone?: "lime" | "dark";
-  className?: string;
 };
 
 const sizes = {
@@ -16,11 +15,11 @@ const sizes = {
 };
 
 /** Overlapping avatar row with a count bubble at the end. */
-export function AvatarStack({ avatars, countLabel, size = "sm", badgeTone = "lime", className }: AvatarStackProps) {
+export function AvatarStack({ avatars, countLabel, size = "sm", badgeTone = "lime" }: AvatarStackProps) {
   const s = sizes[size];
 
   return (
-    <div className={cn("flex items-center", className)}>
+    <div className="flex items-center">
       {avatars.map((src) => (
         <Image key={src} src={src} alt="" width={s.px} height={s.px} className={cn("rounded-full", s.avatar)} />
       ))}
